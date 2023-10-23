@@ -1,19 +1,39 @@
 <?php
-require_once __DIR__ . '/controllers/ManagersController.php';
-require_once __DIR__ . '/controllers/FundsController.php';
+require_once 'controllers/ManagersController.php';
+require_once 'controllers/FundsController.php';
+require_once 'controllers/CompaniesController.php';
+require_once 'controllers/AliasesController.php';
+require_once 'controllers/EventsController.php';
 
 // Define the routes for the API
 $routes = [
+    // Managers
     ['GET', '/managers', 'ManagersController@index'],
     ['GET', '/managers/(\d+)', 'ManagersController@read'],
     ['POST', '/managers', 'ManagersController@store'],
     ['PUT', '/managers/(\d+)', 'ManagersController@update'],
     ['DELETE', '/managers/(\d+)', 'ManagersController@destroy'],
+    // Funds
     ['GET', '/funds', 'FundsController@index'],
     ['GET', '/funds/(\d+)', 'FundsController@read'],
     ['POST', '/funds', 'FundsController@store'],
     ['PUT', '/funds/(\d+)', 'FundsController@update'],
     ['DELETE', '/funds/(\d+)', 'FundsController@destroy'],
+    ['GET', '/duplicate_funds', 'FundsController@duplicates'],
+    // Companies
+    ['GET', '/companies', 'CompaniesController@index'],
+    ['GET', '/companies/(\d+)', 'CompaniesController@read'],
+    ['POST', '/companies', 'CompaniesController@store'],
+    ['PUT', '/companies/(\d+)', 'CompaniesController@update'],
+    ['DELETE', '/companies/(\d+)', 'CompaniesController@destroy'],
+    // Aliases
+    ['GET', '/aliases', 'AliasesController@index'],
+    ['GET', '/aliases/(\d+)', 'AliasesController@read'],
+    ['POST', '/aliases', 'AliasesController@store'],
+    ['PUT', '/aliases/(\d+)', 'AliasesController@update'],
+    ['DELETE', '/aliases/(\d+)', 'AliasesController@destroy'],
+    // Events
+    ['GET', '/events', 'EventsController@getMessages'],
 ];
 
 // Parse the request URL

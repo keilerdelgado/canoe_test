@@ -16,5 +16,14 @@ services:
       - ./sql/seed.sql:/docker-entrypoint-initdb.d/seed.sql
     ports:
       - "5432:5432"
-    networks:
-      - canoe-network
+
+  rabbitmq:
+    image: "rabbitmq:management"
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "canoe-cookie"
+    volumes:
+      - "./rabbitmq_data:/var/lib/rabbitmq"
