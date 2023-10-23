@@ -74,16 +74,16 @@ Valid enpoints:
 
 2. Create a back-end service to support the following use cases:
 
-- a. Display a list of funds optionally filtered by Name, Fund Manager, Year
-- How: [GET] /managers?start_year=2010&manager_id=1?name=some
-- b. An Update method to update a Fund and all related attributes.
-- How: [PUT] /funds/{id} (every attribute in the body will be updated)
+- **a.** Display a list of funds optionally filtered by Name, Fund Manager, Year
+- **How:** [GET] /managers?start_year=2010&manager_id=1?name=some
+- **b.** An Update method to update a Fund and all related attributes.
+- **How:** [PUT] /funds/{id} (every attribute in the body will be updated)
 
 3. Create an event-driven back end process to support:
 
-- a. If a new fund is created with a name and manager that matches the name or an alias of an existing fund with the same manager, throw a duplicate_fund_warning event.
-- How: Implemented a queue system with RabbitMQ
-- b. Write a process to Consume the duplicate_fund_warning event
-- How: [GET] /events
-- c. Bonus if time permitting: Add a method to the service created in #2 that will return a list of potentially duplicate funds
-- How: [GET] /duplicate_funds
+- **a.** If a new fund is created with a name and manager that matches the name or an alias of an existing fund with the same manager, throw a duplicate_fund_warning event.
+- **How:** Implemented a queue system with RabbitMQ
+- **b.** Write a process to Consume the duplicate_fund_warning event
+- **How:** [GET] /events
+- **c.** Bonus if time permitting: Add a method to the service created in #2 that will return a list of potentially duplicate funds
+- **How:** [GET] /duplicate_funds
