@@ -70,6 +70,8 @@ Valid enpoints:
 ## Tasks
 
 1. Design and create a data model to store data for the entities described above. Please document your ER diagram.
+   ![ERD](./assets/canoe_erd.png?raw=true "Title")
+
 2. Create a back-end service to support the following use cases:
 
 - a. Display a list of funds optionally filtered by Name, Fund Manager, Year
