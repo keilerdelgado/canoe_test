@@ -9,7 +9,7 @@
 
 1. Clone the repository:
 
-```bash
+```
 git clone git@github.com:keilerdelgado/canoe_test.git
 
 # move to the project folder
