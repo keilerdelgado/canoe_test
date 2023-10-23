@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  local:
+    image: postgres:latest
+    restart: always
+    container_name: canoe-postgres
+    hostname: canoe-postgres
+    environment:
+      POSTGRES_DB: canoedb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+      - ./sql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      - ./sql/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - canoe-network
